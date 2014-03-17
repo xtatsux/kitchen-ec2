@@ -62,6 +62,12 @@ module Kitchen
       required_config :image_id
 
       def create(state)
+        info("Creating <#{state[:server_id]}>...")
+        info("If you are not using an account that qualifies under the AWS")
+        info("free-tier, you may be charged to run these suites. The charge")
+        info("should be minimal, but neither Test Kitchen nor its maintainers")
+        info("are responsible for your incurred costs.")
+
         server = create_server
         state[:server_id] = server.id
 
